@@ -1,0 +1,57 @@
+{
+    "name": "docker-compose-nodejs-with-typescript-example",
+    "version": "1.0.0",
+    "description": "An example of Nodejs and Mongodb servers built using Docker Compose with support for TypeScript",
+    "main": "build/index.js",
+    "types": "build/index.d.ts",
+    "scripts": {
+        "start": "node build/index.js",
+        "start:dev": "nodemon --legacy-watch",
+        "clean": "rm -rf build/*",
+        "build": "tsc",
+        "clean-build": "rm -rf build/* && tsc",
+        "build:watch": "tsc --watch",
+        "clean-build:watch": "rm -rf build/* && tsc --watch",
+        "test": "nyc mocha --opts ./src/test/mocha.opts",
+        "test:watch": "nyc mocha --watch --watch-extensions ts --opts ./src/test/mocha.opts"
+    },
+    "dependencies": {
+        "@types/uuid": "^8.3.1",
+        "axios": "^0.24.0",
+        "body-parser": "^1.19.0",
+        "express": "^4.16.3",
+        "ramda": "^0.27.1"
+    },
+    "devDependencies": {
+        "@types/chai": "4.1.6",
+        "@types/express": "^4.16.0",
+        "@types/mocha": "5.2.5",
+        "@types/node": "10.11.4",
+        "@types/uuid": "^8.3.1",
+        "chai": "4.2.0",
+        "dotenv": "^10.0.0",
+        "mocha": "5.2.0",
+        "nodemon": "^1.18.5",
+        "nyc": "13.0.1",
+        "source-map-support": "0.5.9",
+        "ts-node": "7.0.1",
+        "typescript": "3.1.1",
+        "uuid": "^8.3.2"
+    },
+    "nyc": {
+        "extension": [
+            ".ts"
+        ],
+        "exclude": [
+            "**/*.d.ts",
+            "src/test/**/*",
+            "build/**/*",
+            "docs/**/*",
+            "coverage/**/*"
+        ],
+        "reporter": [
+            "text-summary"
+        ],
+        "all": true
+    }
+}

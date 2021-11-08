@@ -1,0 +1,19 @@
+---
+version: '3'
+services:
+  pwned:
+    image: pwned
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      target: localdev
+    container_name: pwned
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - "5051:5051"
+    environment:
+      - PORT=5051
+      - NODE_ENV=development
+    restart: always

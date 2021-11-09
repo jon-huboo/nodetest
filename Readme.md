@@ -49,6 +49,23 @@ When I have been pwned
 
 Then true will be returned
 
+## API Docs
+
+#### POST check-password
+
+##### Request Body
+```
+{
+    "password": "secret"
+}
+```
+
+##### Response Body
+{
+    "pwned": true
+}
+```
+
 ## Tech Spec
 
 sha1 the unhashed password and split at char 5 into suffix and prefix.
